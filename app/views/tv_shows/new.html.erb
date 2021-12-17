@@ -1,0 +1,11 @@
+<div class='container'>
+  <h3>Add a new TV show to your list</h3>
+
+  <%= simple_form_for(@tv_show) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :imdb_rating %>
+    <%= f.input :recommended_by %>
+    <%= f.submit :Add, class: 'btn btn-primary' %>
+  <% end %>
+
+</div>

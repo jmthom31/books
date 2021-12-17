@@ -1,21 +1,23 @@
-<div>
-  <%= link_to  'Add', new_film_path, class: 'btn btn-primary' %>
-</div>
+<div class='container list-container'>
+  <div>
+    <%= link_to  'Add', new_film_path, class: 'btn' %>
+  </div>
 
-<div class='list-section'>
-  <h4>Films to watch</h4>
-  <% @films.each do |film| %>
-    <% if film.complete == false %>
-    <p><%= film.name %> - IMDb rating: <%= film.imdb_rating %></p>
+  <div class='list-section'>
+    <h4>Films to watch</h4>
+    <% @films.each do |film| %>
+      <% if film.complete == false %>
+      <p><%= film.name %> - IMDb rating: <%= film.imdb_rating %> <span> <%= link_to 'mark as watched', film_path(film), class: 'btn' %></span></p>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 
-<div class='list-section'>
-  <h4>Films watched</h4>
-  <% @films.each do |film| %>
-    <% if film.complete == true %>
-      <p><%= film.name %> - IMDb rating: <%= film.imdb_rating %></p>
+  <div class='list-section'>
+    <h4>Films watched</h4>
+    <% @films.each do |film| %>
+      <% if film.complete == true %>
+        <p><%= film.name %> - IMDb rating: <%= film.imdb_rating %></p>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

@@ -1,1 +1,23 @@
-tv shows go here
+<div class='container list-container'>
+  <div>
+    <%= link_to  'Add', new_tv_show_path, class: 'btn' %>
+  </div>
+
+  <div class='list-section'>
+    <h4>TV shows to watch</h4>
+    <% @tv_shows.each do |tv_show| %>
+      <% if tv_show.complete == false %>
+      <p><%= tv_show.name %> - IMDb rating: <%= tv_show.imdb_rating %> <span> <%= link_to 'mark as watched', tv_show_path(tv_show), class: 'btn' %></span></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='list-section'>
+    <h4>TV shows watched</h4>
+    <% @tv_shows.each do |tv_show| %>
+      <% if tv_show.complete == true %>
+        <p><%= tv_show.name %> - IMDb rating: <%= tv_show.imdb_rating %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
