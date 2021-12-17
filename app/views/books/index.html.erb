@@ -1,23 +1,26 @@
 <div class='container list-container'>
+
+  <div class='list-subsections'>
+    <div class='list-section'>
+      <h4>Books to read</h4>
+      <% @books.each do |book| %>
+        <% if book.complete == false %>
+        <p><%= book.name %> - <%= book.author %> <span> <%= link_to 'mark as read', book_path(book), class: 'secondary-bttn' %></span></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class='list-section'>
+      <h4>Books read</h4>
+      <% @books.each do |book| %>
+        <% if book.complete == true %>
+          <p><%= book.name %> - <%= book.author %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
   <div>
-    <%= link_to  'Add', new_book_path, class: 'btn' %>
-  </div>
-
-  <div class='list-section'>
-    <h4>Books to read</h4>
-    <% @books.each do |book| %>
-      <% if book.complete == false %>
-      <p><%= book.name %> - <%= book.author %> <span> <%= link_to 'mark as read', book_path(book), class: 'btn' %></span></p>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class='list-section'>
-    <h4>Books read</h4>
-    <% @books.each do |book| %>
-      <% if book.complete == true %>
-        <p><%= book.name %> - <%= book.author %></p>
-      <% end %>
-    <% end %>
+    <%= link_to  'Add book', new_book_path, class: 'bttn' %>
   </div>
 </div>

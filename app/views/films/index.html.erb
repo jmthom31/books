@@ -1,23 +1,27 @@
 <div class='container list-container'>
+
+  <div class='list-subsections'>
+    <div class='list-section'>
+      <h4>Films to watch</h4>
+      <% @films.each do |film| %>
+        <% if film.complete == false %>
+        <p><%= film.name %> - IMDb rating: <%= film.imdb_rating %> <span> <%= link_to 'mark as watched', film_path(film), class: 'secondary-bttn' %></span></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class='list-section'>
+      <h4>Films watched</h4>
+      <% @films.each do |film| %>
+        <% if film.complete == true %>
+          <p><%= film.name %> - IMDb rating: <%= film.imdb_rating %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
   <div>
-    <%= link_to  'Add', new_film_path, class: 'btn' %>
+    <%= link_to  'Add Film', new_film_path, class: 'bttn' %>
   </div>
 
-  <div class='list-section'>
-    <h4>Films to watch</h4>
-    <% @films.each do |film| %>
-      <% if film.complete == false %>
-      <p><%= film.name %> - IMDb rating: <%= film.imdb_rating %> <span> <%= link_to 'mark as watched', film_path(film), class: 'btn' %></span></p>
-      <% end %>
-    <% end %>
-  </div>
-
-  <div class='list-section'>
-    <h4>Films watched</h4>
-    <% @films.each do |film| %>
-      <% if film.complete == true %>
-        <p><%= film.name %> - IMDb rating: <%= film.imdb_rating %></p>
-      <% end %>
-    <% end %>
-  </div>
 </div>

@@ -1,0 +1,16 @@
+.bttn {
+  background-color: #9888a5;
+  color: white;
+  padding: 4px 18px;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.bttn a:hover {
+  color: #f0eff4;
+}
+
+.list-container {
+  display: flex;
+  justify-content: space-around;
+}
