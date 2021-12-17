@@ -1,0 +1,11 @@
+<div class='container'>
+  <h3>Add a new book to your list</h3>
+
+  <%= simple_form_for(@book) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :author %>
+    <%= f.input :recommended_by %>
+    <%= f.submit :Add, class: 'btn btn-primary' %>
+  <% end %>
+
+</div>
